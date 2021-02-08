@@ -65,10 +65,10 @@
 
     // 5. Sort the inventors by years lived
     function compare3(a, b) {
-        return (a.passed - a.year) - (b.passed - b.year);
+        return (b.passed - b.year) - (a.passed - a.year);
     }
     const livedYearInventors = inventors.sort(compare3)
-    console.log(livedYearInventors)
+    console.table(livedYearInventors)
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
