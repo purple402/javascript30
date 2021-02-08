@@ -56,30 +56,12 @@
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
 
-    function compare2(a, b) {
-        return b.passed - a.passed;
-    }
-    const sortInventorsPassed = inventors.sort(compare2)
-    
-    const firstYear = sortInventors[0].year - 1
-    const lastYear = sortInventorsPassed[0].passed + 1
+    const totalYears = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year)
+    }, 0);
 
-    let allLiveCount = 0;
+    console.log(totalYears)
 
-    for(year = firstYear; year < lastYear; year++) {
-      let living = null;
-      inventors.forEach(inventor => {
-        if(inventor.year < year && inventor.passed < year) {
-          living += 1;
-        }
-      })
-      if (living === 12) {
-        allLiveCount += 1;
-      }
-      living = null;
-    }
-    
-    console.log('allLiveCount', allLiveCount)
 
     // 5. Sort the inventors by years lived
     function compare3(a, b) {
