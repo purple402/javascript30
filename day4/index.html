@@ -95,15 +95,14 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
-    const newData = data.reduce((newArray, current) => {
-      if(newArray[current]) {
-        newArray[current]++
+    const newData = data.reduce((obj, item) => {
+      if(obj[item]) {
+        obj[item]++
       } else {
-        newArray[current] = 1
+        obj[item] = 1
       }
-
-      return newArray
-    }, []);
+      return obj
+    }, {});
     console.log(newData)
 
   </script>
