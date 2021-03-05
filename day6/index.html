@@ -17,6 +17,48 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+const cities = [];
+
+fetch(endpoint) // fecth return Promise
+    .then(blob => blob.json()) // 어떤 형식(image,music,html...)인지 모름, json()은 text를 JSON으로 바꾸는 promise를 반환함
+    .then(data => cities.push(...data)); // cities를 변하지 않는 상수로 남겨둠, ...를 통해 data의 항목들을 하나씩 push한다
+
+
+function findMathes(wordToMatch, cities) {
+  return cities.filter(place => {
+    // 검색어에 맞는 city와 states를 알아내야함
+    const regex = new RegExp(wordToMatch, 'gi');
+    return place.city.match(regex) || place.state.match(regex)
+  });
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function displayMathes() {
+  const matchArray = findMathes(this.value, cities);
+  const html = matchArray.map(place => {
+    const regex = new RegExp(this.value, 'gi');
+    const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+    const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+    return `
+    <li>
+      <span class="name">${cityName}, ${stateName}</span>
+      <span class="population">${numberWithCommas(place.population)}</span>
+    </li>
+  `;
+  }).join('');
+  // map으로 새로운 배열을 반환함, join으로 하나의 긴 문자열로 만듬
+  suggestions.innerHTML = html;
+  // HTML에 매번 넣었다가 제거할 필요 없이 쉽게 변화 가능함
+}
+
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMathes)
+searchInput.addEventListener('keyup', displayMathes)
 </script>
 </body>
 </html>
