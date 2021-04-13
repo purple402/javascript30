@@ -111,6 +111,10 @@
     dev.social.twitter = '@coolman';
     console.log(wes.social, dev.social); // same
 
+    // one way to copy
+    const dev2 = JSON.parse(JSON.stringify(wes));
+    dev2.social.twitter = '@coolman2';
+    console.log(wes.social, dev2.social); // different
 
   </script>
 
