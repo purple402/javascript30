@@ -58,8 +58,16 @@
         }).join('');
     }
 
+    function toggleDone(e) {
+        if (!e.target.matches('input')) return; // skip this unless it's an input
+        console.log(e.target);
+    }
+
+
     addItems.addEventListener('submit', addItem);
     // e => addItem(e) 인 경우는 addItem 내의 this는 window가 된다
+    itemsList.addEventListener('click', toggleDone)
+
 
     populateList(items, itemsList)
 </script>
