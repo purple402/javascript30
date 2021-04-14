@@ -29,7 +29,7 @@
 <script>
     const addItems = document.querySelector('.add-items');
     const itemsList = document.querySelector('.plates');
-    const items = [];
+    const items = JSON.parse(localStorage.getItem('items')) || [];
 
     function addItem(e) {
         e.preventDefault();
@@ -60,6 +60,8 @@
 
     addItems.addEventListener('submit', addItem);
     // e => addItem(e) 인 경우는 addItem 내의 this는 window가 된다
+
+    populateList(items, itemsList)
 </script>
 
 
