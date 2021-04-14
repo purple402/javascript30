@@ -41,8 +41,20 @@
         // ES6, (text = text) == (text)
         
         items.push(item);
+        populateList(items, itemsList);
         this.reset();
     }
+
+    // 재사용 위해 특정 매개변수를 사용하지 않는다.
+    function populateList(plates = [], platesList) {
+        platesList.innerHTML = plates.map((plate, i) => {
+            return `
+                <li>
+                    <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''}/>
+                    <label for="item${i}">${plate.text}</lable>
+                </li>
+            `;
+        }).join('');
     }
 
     addItems.addEventListener('submit', addItem);
