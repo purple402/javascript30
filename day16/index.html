@@ -47,7 +47,17 @@
         const { offsetWidth: width, offsetHeight: height } = hero;
         let { offsetX: x, offsetY: y } = e;
 
-        console.log(x, y)
+        /* 
+        h1 안에 있을 땐 offsetX, offsetY가 h1의 왼쪽 상단으로부터의 거리를 출력한다
+        this와 e.target을 통해 마우스가 h1 위에 있을 때를 구분한다
+        hero 밖 : this = e.target = hero
+        hero 안 : this = hero
+                  e.target = h1
+        */
+        if (this !== e.target) {
+            x = x + e.target.offsetLeft;
+            y = y + e.target.offsetTop;
+        }
     };
 
     hero.addEventListener('mousemove', shadow);
