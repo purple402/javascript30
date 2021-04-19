@@ -34,3 +34,5 @@ function takePhoto() {
 
 getVideo();
 
+// video.play(); emit an event 'canplay' -> paintToCanvas()
+video.addEventListener('canplay', paintToCanvas);
