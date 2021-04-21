@@ -31,6 +31,13 @@
       // 변환된 text를 p에 집어넣음  
       p.textContent = transcript;
 
+      // 한 문장이 끝나면 새로운 p를 만들어줌/ 이 과정을 하지 않으면 이전 문장이 사라지고 새로운 문장이 기존 p에 입력됨
+      // speech recognition이 끝나면 isFinal = true
+      if(e.results[0].isFinal) {
+          p = document.createElement('p');
+          words.appendChild(p);
+      }
+
   });
 
   recognition.start();
