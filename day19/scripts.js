@@ -30,7 +30,7 @@ function paintToCanvas() {
         // mess with them
         // pixels = redEffect(pixels);
         
-        pixels = rgbSpllit(pixels);
+        // pixels = rgbSpllit(pixels);
         
         pixels = greenScreen(pixels);
         // put them back
