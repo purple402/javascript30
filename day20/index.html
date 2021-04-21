@@ -21,6 +21,13 @@
   const words = document.querySelector('.words');
   words.appendChild(p);
 
+  recognition.addEventListener('result', e => {
+      const transcript = Array.from(e.results)
+        .map(result => reseult[0])
+        .map(result => reseult.transcript)
+        .join('')
+  });
+
   recognition.start();
 
 </script>
