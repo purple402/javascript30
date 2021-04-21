@@ -12,6 +12,11 @@
 <script>
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
+  // instance 생성
+  const recognition = new SpeechRecognition();
+  // true이면 음절을 연속적으로 인식, false면 한 음절만 기록함
+  recognition.interimResults = true;
+  recognition.start();
 
 </script>
 
