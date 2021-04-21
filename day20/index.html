@@ -38,6 +38,10 @@
           words.appendChild(p);
       }
 
+      // 특정 단어를 찾을 수 있다.
+      if(transcript.includes('get the weather')) {
+          console.log('Getting the weather');
+      }
   });
 
   recognition.start();
