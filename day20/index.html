@@ -23,6 +23,7 @@
 
   recognition.addEventListener('result', e => {
       const transcript = Array.from(e.results)
+      // e.results는 SpeechRecognitionResult 안에 transcript를 가진다
         .map(result => reseult[0])
         .map(result => reseult.transcript)
         .join('')
