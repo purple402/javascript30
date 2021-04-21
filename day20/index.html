@@ -44,6 +44,9 @@
       }
   });
 
+  // 쉬고 나서 다시 새롭게 recognition이 시작하도록 함
+  recognition.addEventListener('end', recognition.start);
+
   recognition.start();
 
 </script>
