@@ -16,6 +16,11 @@
   const recognition = new SpeechRecognition();
   // true이면 음절을 연속적으로 인식, false면 한 음절만 기록함
   recognition.interimResults = true;
+
+  let p = document.createElement('p');
+  const words = document.querySelector('.words');
+  words.appendChild(p);
+
   recognition.start();
 
 </script>
