@@ -62,6 +62,16 @@
       const arrow = document.querySelector('.arrow');
       const speed = document.querySelector('.speed-value');
 
+      navigator.geolocaation.watchPosition((data) => {
+          // data는 timestamp와 coordinates를 가진다.
+          // coordinates 에는 정확성, 방향, 경도, 위도, 속도 정보를 가지고 있다.
+         
+          // 화면에 속도를 표시함
+          speed.textContent = data.coords.speed;
+          // 나침반의 방향을 heading 으로 바꿔줌
+          arrow.style.transform = `rotate(${data.coords.heading}deg)`
+      });
+
   </script>
 </body>
 </html>
