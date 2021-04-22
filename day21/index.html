@@ -70,6 +70,9 @@
           speed.textContent = data.coords.speed;
           // 나침반의 방향을 heading 으로 바꿔줌
           arrow.style.transform = `rotate(${data.coords.heading}deg)`
+      }, (err) => {
+          console.err(err);
+          alert('HEY! YOU GOTTA ALLOW THAT TO HAPPEN!!');
       });
 
   </script>
