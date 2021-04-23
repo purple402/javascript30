@@ -35,6 +35,18 @@
     // 여기까지는 span이 내용이 없고, width, hight가 정의되어 있지 않기 때문에 화면에 나타나지 않는다.
 
     function highlightLink() {
+      // event가 일어난 객체가 this가 된다.
+      const linkCoords = this.getBoundingClientRect();
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      };
+
+      highlight.style.width = `${coords.width}px`;
+      highlight.style.height = `${coords.height}px`;
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
     }
 
     triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
