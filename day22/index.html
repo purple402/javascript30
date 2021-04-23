@@ -34,6 +34,11 @@
     document.body.append(highlight);
     // 여기까지는 span이 내용이 없고, width, hight가 정의되어 있지 않기 때문에 화면에 나타나지 않는다.
 
+    function highlightLink() {
+    }
+
+    triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+    
   </script>
 </body>
 </html>
