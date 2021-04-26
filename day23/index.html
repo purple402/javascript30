@@ -52,6 +52,14 @@
         toggle();
     }
 
+    function toggle(startOver = true) {
+        // 음성이 나오고 있을 때 바꿔도 바로 시작하도록 한다
+        speechSynthesis.cancel();
+        if (startOver) {
+            speechSynthesis.speak(msg);
+        }
+    }
+
     speechSynthesis.addEventListener('voiceschanged', populateVoices);
     voicesDropdown.addEventListener('change', setVoice);
 </script>
