@@ -61,10 +61,15 @@
     if(window.scrollY >= topOfNav) {
       // 다른 element들의 속성도 바꾸고 싶을 때 body에 class를 추가하고, .fixed-nav nav로 접근해서 style을 설정한다.
       document.body.classList.add('fixed-nav');
+      // nav의 position이 바뀌면 더이상 그 자리를 차지하지 않아서 갑자기 .site-wrap이 올라가는 것 처럼 보인다
+      // 공백을 만들어준다
+      document.body.style.paddingTop = nav.offsetHeight + 'px';
     } else {
+      document.body.style.paddingTop = 0;
       document.body.classList.remove('fixed-nav');
     }
   }
+
   window.addEventListener('scroll', fixNav);
 </script>
 
