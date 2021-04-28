@@ -79,6 +79,11 @@ li.logo {
   font-size: 30px;
 }
 
+.fixed-nav li.logo {
+  /* transition을 위해서는 max-width을 사용해야 한다 */
+  max-width: 500px;
+}
+
 li.logo a {
   color: black;
 }
