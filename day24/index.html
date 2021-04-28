@@ -54,7 +54,18 @@
   </div>
 
 <script>
+  const nav = document.querySelector('#main');
+  const topOfNav = nav.offsetTop;
 
+  function fixNav(e) {
+    if(window.scrollY >= topOfNav) {
+      // 다른 element들의 속성도 바꾸고 싶을 때 body에 class를 추가하고, .fixed-nav nav로 접근해서 style을 설정한다.
+      document.body.classList.add('fixed-nav');
+    } else {
+      document.body.classList.remove('fixed-nav');
+    }
+  }
+  window.addEventListener('scroll', fixNav);
 </script>
 
 </body>
