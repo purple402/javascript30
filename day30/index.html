@@ -65,6 +65,14 @@
             if(!timeUp) peep();
         }, time);
     }
+
+    function startGame() {
+        scoreBoard.textContent = 0;
+        timeUp = false;
+        peep();
+        // stop the game after 10 seconds
+        setTimeout(() => timeUp = true, 10000);
+    }
 </script>
 </body>
 </html>
