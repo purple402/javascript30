@@ -73,6 +73,14 @@
         // stop the game after 10 seconds
         setTimeout(() => timeUp = true, 10000);
     }
+
+    function bonk(e) {
+        // event.isTrusted 변수는 직접 클릭한 경우 = true, Javascript통해 fake clicking 한 경우(simulated) = false;
+        if (!e.isTrusted) return; // cheater!
+        
+    }
+
+    moles.forEach(mole => mole.addEventListener('click', bonk));
 </script>
 </body>
 </html>
