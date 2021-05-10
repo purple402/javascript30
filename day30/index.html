@@ -40,6 +40,12 @@
     function randTime(min, max) {
         return Math.round(Math.random() * (max - min) + min);
     }
+
+    function randomHole(holes) {
+        // random index between 0 and holes.length
+        const idx = Math.floor(Math.random() * holes.length);
+        const hole = holes[idx];
+    }
 </script>
 </body>
 </html>
