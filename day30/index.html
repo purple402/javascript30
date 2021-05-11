@@ -38,6 +38,7 @@
     const moles = document.querySelectorAll('.mole');
     let lastHole;
     let timeUp = false;
+    let score = 0;
     
     function randomTime(min, max) {
         return Math.round(Math.random() * (max - min) + min);
@@ -69,6 +70,7 @@
     function startGame() {
         scoreBoard.textContent = 0;
         timeUp = false;
+        score = 0;
         peep();
         // stop the game after 10 seconds
         setTimeout(() => timeUp = true, 10000);
@@ -77,7 +79,9 @@
     function bonk(e) {
         // event.isTrusted 변수는 직접 클릭한 경우 = true, Javascript통해 fake clicking 한 경우(simulated) = false;
         if (!e.isTrusted) return; // cheater!
-        
+        score++;
+        this.classList.remove('up');
+        scoreBoard.textContent = score;
     }
 
     moles.forEach(mole => mole.addEventListener('click', bonk));
